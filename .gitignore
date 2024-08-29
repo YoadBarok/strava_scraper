@@ -1,0 +1,5 @@
+.env
+venv
+access_keys.csv
+data/*
+!data/.gitkeep
