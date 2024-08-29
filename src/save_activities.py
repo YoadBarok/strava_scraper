@@ -25,17 +25,17 @@ def save_activities(user_id):
         except Exception:
             return None
 
-    access_token = get_access_token_from_csv_file(user_id)
+    try:
+        access_token = get_access_token_from_csv_file(user_id)
+    except Exception as e:
+        raise Exception(f"Error getting access token: {e}")
     page = 1
     page_size = 200
 
     headers = {"Authorization": f"Bearer {access_token}"}
 
     api_response = None
-    csv_filename = f"data/{user_id}_activities.csv"
-
-    # Create directory if not exists
-    os.makedirs(os.path.dirname(csv_filename), exist_ok=True)
+    csv_filename = f"../data/{user_id}_activities.csv"
 
     with open(csv_filename, mode="w", newline="") as file:
         file.write("")  # Create an empty file
