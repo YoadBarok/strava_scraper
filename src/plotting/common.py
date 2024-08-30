@@ -1,10 +1,11 @@
 from io import BytesIO
+import os
 from matplotlib import pyplot as plt
 import pandas as pd
 
 
 def get_activities_data_frame_from_csv(user_id) -> pd.DataFrame:
-    data_file_path = f"../data/{user_id}_activities.csv"
+    data_file_path = os.path.join(os.getcwd(), f"data/{user_id}_activities.csv")
     data = pd.read_csv(data_file_path)
     return data
 
