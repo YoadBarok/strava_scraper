@@ -13,4 +13,6 @@ WORKDIR /app
 COPY --from=builder /app/.venv .venv/
 COPY . .
 
-CMD ["/app/.venv/bin/gunicorn", "-w", "4", "-b", "0.0.0.0:8080", "src.server:app"]
+WORKDIR /app/src
+
+CMD ["/app/.venv/bin/gunicorn", "-w", "4", "-b", "0.0.0.0:8080", "server:app"]
