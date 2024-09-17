@@ -1,9 +1,9 @@
 import os
 from flask import Flask
 from dotenv import load_dotenv
-from blueprints.plotting import plotting_bp
-from blueprints.auth import auth_bp
-from blueprints.activities import activities_bp
+from .blueprints.auth import auth_bp
+from .blueprints.plotting import plotting_bp
+from .blueprints.activities import activities_bp
 
 load_dotenv()
 

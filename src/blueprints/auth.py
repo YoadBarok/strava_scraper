@@ -3,7 +3,7 @@ from os import getenv, path
 from flask import Blueprint, request, send_file
 import requests
 from dotenv import load_dotenv
-from constants import ACCESS_KEYS_FILE_HEADERS, ACCESS_KEYS_PATH
+from src.constants import ACCESS_KEYS_FILE_HEADERS, ACCESS_KEYS_PATH
 
 load_dotenv()
 

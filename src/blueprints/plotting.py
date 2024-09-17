@@ -1,6 +1,6 @@
 from flask import Blueprint, request, send_file
 
-from plotting.histogram import get_histogram
+from src.plotting.histogram import get_histogram
 
 plotting_bp = Blueprint("plotting", __name__, url_prefix="/plotting")
 
@@ -19,5 +19,6 @@ def plot_histogram():
             download_name=f"{user_id}_activities.png",
         )
     except Exception as e:
+        print("ERROR ERROR")
         print("error:", e)
         return "Error plotting activities"

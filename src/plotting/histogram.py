@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from plotting.common import (
+from src.plotting.common import (
     convert_to_png,
     filter_by_activity_type,
     get_activities_data_frame_from_csv,

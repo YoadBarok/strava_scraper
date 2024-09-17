@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 
-from save_activities import save_activities
+from src.save_activities import save_activities
 
 
 activities_bp = Blueprint("activities", __name__, url_prefix="/activities")

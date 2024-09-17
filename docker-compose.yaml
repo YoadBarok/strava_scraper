@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: strava
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONUNBUFFERED: 1
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONPATH: /app/src
+    volumes:
+      - .:/app
+    command: [ "/app/venv/bin/gunicorn", "server:app", "-c", "gunicorn.config.py" ]
