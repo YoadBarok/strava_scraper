@@ -1,5 +1,10 @@
-fly.toml
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.DS_Store
+.env
+.vscode/
+.idea/
 .git/
-__pycache__/
-.envrc
-.venv/

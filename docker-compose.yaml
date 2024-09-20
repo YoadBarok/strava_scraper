@@ -1,17 +1,16 @@
 version: '3.8'
 
 services:
-  app:
+  flask-app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: strava
     ports:
-      - "8000:8000"
-    environment:
-      PYTHONUNBUFFERED: 1
-      PYTHONDONTWRITEBYTECODE: 1
-      PYTHONPATH: /app/src
+      - "8080:8080"
     volumes:
-      - .:/app
-    command: [ "/app/venv/bin/gunicorn", "server:app", "-c", "gunicorn.config.py" ]
+      - ./src:/app/src # Mount the source code directory to enable live reload
+    env_file:
+      - .env # Point to your .env file
+    environment:
+      - FLASK_ENV=development # Ensure Flask is running in development mode
+    command: gunicorn --reload -w 4 -b 0.0.0.0:8080 src.server:app
